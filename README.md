@@ -25,6 +25,33 @@ si aucune clé API n'est configurée.
 - Si aucune clé API n'est configurée, `Brain.kt` prend le relais avec un message
   t'invitant à la configurer (mode dégradé, pas de vraie intelligence ni recherche).
 
+## Nouveau : écoute permanente avec mot de réveil ("Hey Jarvis")
+
+Mini Ced peut maintenant t'écouter en continu en arrière-plan, sans que tu
+ouvres l'appli ni touches l'avatar. Dis **"Hey Jarvis"** (mot de réveil
+intégré à Porcupine, gratuit, zéro configuration) puis ta demande — il
+répond directement à voix haute, où que tu sois sur ton téléphone.
+
+**Pour l'activer :**
+1. Crée un compte gratuit sur [console.picovoice.ai](https://console.picovoice.ai),
+   récupère ton "AccessKey" (chaîne de caractères dans ton dashboard).
+2. Dans l'appli, bouton **"0b. Configurer la clé Picovoice"**, colle-le.
+3. Bouton **"2. Activer Mini Ced (écoute permanente)"**.
+4. Dis "Hey Jarvis, ..." depuis n'importe quelle appli sur ton téléphone.
+
+**Pour remplacer "Hey Jarvis" par "Hey Mini Ced"** (mot-clé personnalisé,
+gratuit mais demande un peu plus de travail) :
+1. Sur console.picovoice.ai, section "Porcupine" > crée un mot-clé personnalisé
+   "Hey Mini Ced", choisis la plateforme **Android**, télécharge le fichier `.ppn`.
+2. Dépose ce fichier dans `app/src/main/assets/` (crée le dossier `assets` si
+   besoin).
+3. Dans `OverlayService.kt`, remplace `.setKeyword(Porcupine.BuiltInKeyword.JARVIS)`
+   par `.setKeywordPath("nom_du_fichier.ppn")`.
+
+**Attention batterie** : l'écoute permanente consomme plus que le mode manuel
+(bouton). Pense à désactiver l'optimisation de batterie pour Mini Ced dans les
+réglages système, sinon Android risque de couper le service au bout d'un moment.
+
 ## Comment obtenir l'APK sans Android Studio (via GitHub Actions)
 
 Ce projet contient déjà tout le nécessaire (`.github/workflows/build.yml`) pour

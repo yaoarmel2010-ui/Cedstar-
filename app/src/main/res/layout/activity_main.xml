@@ -18,8 +18,15 @@
         android:id="@+id/btnApiKey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:text="0. Configurer la clé API Claude" />
+
+    <Button
+        android:id="@+id/btnWakeWordKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="0b. Configurer la clé Picovoice (mot de réveil)" />
 
     <Button
         android:id="@+id/btnPermission"
@@ -32,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="2. Activer Mini Ced (avatar flottant)" />
+        android:text="2. Activer Mini Ced (écoute permanente)" />
 
     <Button
         android:id="@+id/btnStopOverlay"
@@ -46,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="🎤 Parler à Mini Ced" />
+        android:text="🎤 Parler à Mini Ced (manuel, dans l'appli)" />
 
     <TextView
         android:id="@+id/txtLastAnswer"

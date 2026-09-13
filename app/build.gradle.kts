@@ -42,6 +42,9 @@ dependencies {
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
 
+    // Phase 3 : mot de réveil vocal en continu ("Jarvis" par défaut, personnalisable)
+    implementation("ai.picovoice:porcupine-android:3.0.2")
+
     // Phase 3 : décommenter pour un avatar animé (fichier .json Lottie à ajouter dans res/raw)
     // implementation("com.airbnb.android:lottie:6.4.0")
 }

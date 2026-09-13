@@ -5,17 +5,18 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 
 /**
- * Stocke la clé API Anthropic de façon chiffrée sur l'appareil (jamais en clair,
- * jamais codée en dur dans le code source).
+ * Stocke les clés API (Anthropic + Picovoice) de façon chiffrée sur l'appareil
+ * (jamais en clair, jamais codées en dur dans le code source).
  *
- * L'utilisateur doit créer sa propre clé sur https://console.anthropic.com puis
- * la saisir depuis l'écran principal. L'usage de l'API est facturé par Anthropic
- * à l'usage (au volume de texte échangé) — pense à surveiller ta consommation
- * sur la console si tu utilises Mini Ced intensivement.
+ * - Clé Anthropic : créée sur https://console.anthropic.com (facturée à l'usage).
+ * - Clé Picovoice (AccessKey) : créée gratuitement sur https://console.picovoice.ai,
+ *   nécessaire pour le mot de réveil ("Hey Jarvis" par défaut). Gratuite pour un
+ *   usage personnel.
  */
 object ApiKeyStore {
     private const val PREFS_NAME = "mini_ced_secure_prefs"
-    private const val KEY_API = "anthropic_api_key"
+    private const val KEY_ANTHROPIC = "anthropic_api_key"
+    private const val KEY_PICOVOICE = "picovoice_access_key"
 
     private fun prefs(context: Context) = EncryptedSharedPreferences.create(
         context,
@@ -25,11 +26,15 @@ object ApiKeyStore {
         EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
     )
 
-    fun save(context: Context, key: String) {
-        prefs(context).edit().putString(KEY_API, key.trim()).apply()
+    fun saveAnthropicKey(context: Context, key: String) {
+        prefs(context).edit().putString(KEY_ANTHROPIC, key.trim()).apply()
     }
 
-    fun get(context: Context): String? = prefs(context).getString(KEY_API, null)
+    fun getAnthropicKey(context: Context): String? = prefs(context).getString(KEY_ANTHROPIC, null)
 
-    fun isConfigured(context: Context): Boolean = !get(context).isNullOrBlank()
+    fun savePicovoiceKey(context: Context, key: String) {
+        prefs(context).edit().putString(KEY_PICOVOICE, key.trim()).apply()
+    }
+
+    fun getPicovoiceKey(context: Context): String? = prefs(context).getString(KEY_PICOVOICE, null)
 }
