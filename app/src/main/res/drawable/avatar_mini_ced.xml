@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+
+    <!-- Halo -->
+    <path
+        android:fillColor="#332196F3"
+        android:pathData="M48,48m-46,0a46,46 0,1 1,92 0a46,46 0,1 1,-92 0" />
+
+    <!-- Corps principal -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M48,48m-34,0a34,34 0,1 1,68 0a34,34 0,1 1,-68 0" />
+
+    <!-- "Œil" central, représentant l'état d'écoute/réflexion -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,48m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+</vector>

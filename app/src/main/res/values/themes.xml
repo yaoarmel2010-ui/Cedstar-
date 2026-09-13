@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.MiniCed" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+</resources>

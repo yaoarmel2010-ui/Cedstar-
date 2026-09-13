@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Mini Ced</string>
+    <string name="overlay_channel_name">Mini Ced actif</string>
+    <string name="overlay_notif_title">Mini Ced veille</string>
+    <string name="overlay_notif_text">Appuie pour ouvrir les réglages</string>
+</resources>
